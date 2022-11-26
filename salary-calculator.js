@@ -12,9 +12,11 @@ function myFunction() {
                 case salary === 0:
                     break;
                 case salary > 32333:
+                    salary -= 32334;
                     paye += (salary-32333) * 0.3;
                 case salary > 24001:
-                    paye += (salary-24001) * 0.25;
+                    salary -= 24001;
+                    paye += (32333-24001) * 0.25;
                 default:
                     paye += salary * 0.1;
             }
