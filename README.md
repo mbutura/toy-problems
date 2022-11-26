@@ -2,31 +2,58 @@
 
 Solutions for toy problems as part of the moringa school curriculum.
 
-## Setup instructions
+## Running the repository on github
 
-### Running using github pages
+Webpage can be accessed [here](https://mbutura.github.io/toy-problems/)
 
-The files are hosted on github pages and can be run directly.
+## Clone and run locally (Tested on ubuntu 20.04)
 
-### Running locally
+- Install git
 
-Open index.html - it contains links to the various solutions and will open in browser.
+```console
+user@host:~$ sudo snap install git
+```
+- Clone repository using https
 
-### Running on a Virtual Private Server(VPS)
+```console
+user@host:~$ git clone https://github.com/mbutura/toy-problems.git
+```
+- Enter into the cloned repository and open index.html in the browser
 
-- Setup the moringa school development environment (Tested on an ubuntu 20.04 VPS). This will expose the docker port 5050 to port 5050 of the VPS.
+```console
+user@host:~$ cd toy-problems && google-chrome index.html
+```
 
+## Clone to develop the codebase
+
+This section covers extending and running the codebase using within the moringa development enviornment such as npm, nvm etc. This allows the development to be carried out both locally or a Virtual Private Server(VPS).
+
+- install git and docker.
 ```console
 user@host:~$ sudo snap install docker git
+```
+
+- Download the moringa environment docker repository.
+```console
 user@host:~$ git clone https://github.com/mbutura/moringa-environment.git
+```
+
+- Build and run the docker image, and expose port 5050.
+```console
 user@host:~$ bash moringa-environment/setup-env.sh ed25519
 ```
-- Run http-server on port 5050 in the docker image to serve index.html to requests.
-
+- While in the docker container clone this repository. 
 ```console
-moringastudent@e634b4b6087d:~$ cd toy-problems
-moringastudent@e634b4b6087d:~$ bash start-http-server.sh
+moringastudent@e634b4b6087d:~$ git clone https://github.com/mbutura/toy-problems.git
 ```
+- Enter into the cloned repository and start server on port 5050
+```console
+moringastudent@e634b4b6087d:~$ cd toy-problems && bash start-http-server.sh
+```
+
+Locally, the webpage can be accessed on htpp://localhost:5000
+
+On a VPS, the webpage can be accessed on https://[vps public ip X.X.X.X]:5000
 
 ## Author
 
