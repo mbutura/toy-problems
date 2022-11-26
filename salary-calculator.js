@@ -5,27 +5,47 @@ function myFunction() {
         try {
             salary = parseFloat(salary);
             if (salary == NaN || salary < 0) throw "Error: Invalid input, try again...";
-            //PAYE
-            let salaryPayee = salary;
             
+            //PAYE deductions
+            let payee = 0;
             switch(true){
-                case salaryPayee <= 24000:
-                    salaryPayee - salary
+                case salary > 32333:
+                    payee += (salary-32333) * 0.3;
+                case salary > 24001:
+                    payee += (salary-24001) * 0.25;
+                default:
+                    payee += salary * 0.1;
             }
-            if (salaryPayee <= 24000){
-                payee = 0.1;
-            } else if (salary === 70){
-                //Handling edge case
-                points = 1;
-            } else{
-                points = Math.ceil((salary - 70) / 5)
+            
+            //NHIF deductions
+            let nhif = 0
+            switch(true){
+                case salary >= 100000:
+                    nhif = 1700;
+                case salary >= 90000 && salary <= 90000:
+                    nhif = 1600;
+                case salary >= 90000 && salary <= 90000:
+                    nhif = 1700;
+                case salary >= 100000:
+                    nhif = 1700;
+                case salary > 24001:
+                    payee += (salary-24001)*0.25;
+                default:
+                    payee += salary*0.1;
             }
 
-            if (points > 12){
-                points = "License suspended";
+            //NSSF deductions
+            let nssf = 0
+            switch(true){
+                case salary > 32333:
+                    payee += (salary-32333)*0.3;
+                case salary > 24001:
+                    payee += (salary-24001)*0.25;
+                default:
+                    payee += salary*0.1;
             }
 
-            document.getElementById("points-display").innerHTML = `Points: ${points}`;
+        document.getElementById("points-display").innerHTML = `Points: ${points}`;
         } catch(err) {
             document.getElementById("points-display").innerHTML =`${err}`;
         }
