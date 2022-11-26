@@ -4,7 +4,7 @@ function myFunction() {
     if (speed != null) {
         try {
             speed = parseFloat(speed);
-            if (speed == NaN || speed < 0) throw "Error: Invalid input, try again...";
+            if (isNaN(speed) || speed < 0) throw "Error: Invalid input, try again...";
             if (speed < 70){
                 points = 'OK';
             } else if (speed === 70){

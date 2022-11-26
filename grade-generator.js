@@ -4,7 +4,7 @@ function myFunction() {
     if (mark != null) {
         try {
             mark = parseInt(mark, 10);
-            if (mark == NaN || mark < 0 || mark > 100 ) throw "Error: Invalid input, try again...";
+            if (isNaN(mark) || mark < 0 || mark > 100 ) throw "Error: Invalid input, try again...";
             switch (true) {
                 case mark > 79:
                     grade = 'A';

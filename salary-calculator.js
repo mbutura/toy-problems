@@ -3,53 +3,102 @@ function myFunction() {
     let points;
     if (salary != null) {
         try {
+            let paye = 0;
+            let nssf = 0;
+            let nhif = 0;
             salary = parseFloat(salary);
-            if (salary == NaN || salary < 0) throw "Error: Invalid input, try again...";
-            
-            //PAYE deductions
-            let payee = 0;
+            if (isNaN(salary) || salary < 0) throw "Error: Invalid input, try again...";
             switch(true){
+                case salary === 0:
+                    break;
                 case salary > 32333:
-                    payee += (salary-32333) * 0.3;
+                    paye += (salary-32333) * 0.3;
                 case salary > 24001:
-                    payee += (salary-24001) * 0.25;
+                    paye += (salary-24001) * 0.25;
                 default:
-                    payee += salary * 0.1;
+                    paye += salary * 0.1;
             }
             
             //NHIF deductions
-            let nhif = 0
             switch(true){
+                case salary === 0:
+                    break;
                 case salary >= 100000:
                     nhif = 1700;
-                case salary >= 90000 && salary <= 90000:
+                    break;
+                case salary >= 90000 && salary < 100000:
                     nhif = 1600;
-                case salary >= 90000 && salary <= 90000:
-                    nhif = 1700;
-                case salary >= 100000:
-                    nhif = 1700;
-                case salary > 24001:
-                    payee += (salary-24001)*0.25;
+                    break;
+                case salary >= 80000 && salary < 90000:
+                    nhif = 1500;
+                    break;
+                case salary >= 70000 && salary < 80000:
+                    nhif = 1400;
+                    break;
+                case salary >= 60000 && salary < 70000:
+                    nhif = 1300;
+                    break;
+                case salary >= 50000 && salary < 60000:
+                    nhif = 1200;
+                    break;
+                case salary >= 40000 && salary < 50000:
+                    nhif = 1100;
+                    break;
+                case salary >= 40000 && salary < 45000:
+                    nhif = 1000;
+                    break;
+                case salary >= 35000 && salary < 40000:
+                    nhif = 950;
+                    break;
+                case salary >= 30000 && salary < 35000:
+                    nhif = 900;
+                    break;
+                case salary >= 25000 && salary < 30000:
+                    nhif = 850;
+                    break;
+                case salary >= 20000 && salary < 25000:
+                    nhif = 750;
+                    break;
+                case salary >= 15000 && salary < 20000:
+                    nhif = 600;
+                    break;
+                case salary >= 12000 && salary < 15000:
+                    nhif = 500;
+                    break;
+                case salary >= 8000 && salary < 12000:
+                    nhif = 400;
+                    break;
+                case salary >= 6000 && salary < 8000:
+                    nhif = 300;
+                    break;
                 default:
-                    payee += salary*0.1;
+                    nhif = 150;
+                    break;
             }
 
             //NSSF deductions
-            let nssf = 0
             switch(true){
-                case salary > 32333:
-                    payee += (salary-32333)*0.3;
-                case salary > 24001:
-                    payee += (salary-24001)*0.25;
+                case salary === 0:
+                    break;
+                case salary >= 18000:
+                    nssf = 0.06 * 18000;
+                    break;
+                case salary >= 6001 && salary < 18000:
+                    nhif = 0.06 * salary;
+                    break;
                 default:
-                    payee += salary*0.1;
+                    nhif = 0.06 * salary;
+                    break;
             }
-
-        document.getElementById("points-display").innerHTML = `Points: ${points}`;
+            document.getElementById("gross-display").innerHTML = `Gross pay: ${salary}`;
+            document.getElementById("paye-display").innerHTML = `PAYE: ${paye.toFixed(1)}`;
+            document.getElementById("nhif-display").innerHTML = `NHIF ${nhif.toFixed(1)}`;
+            document.getElementById("nssf-display").innerHTML = `NSSF: ${nssf.toFixed(1)}`;
+            document.getElementById("net-display").innerHTML = `Net payable: ${(salary-paye-nssf-nhif).toFixed(1)}`;
         } catch(err) {
-            document.getElementById("points-display").innerHTML =`${err}`;
+            document.getElementById("gross-display").innerHTML =`${err}`;
         }
     } else {
-        document.getElementById("points-display").innerHTML ="Error: Invalid input, try again...";
+        document.getElementById("gross-display").innerHTML ="Error: Invalid input, try again...";
     }
   }
