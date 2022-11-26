@@ -26,7 +26,7 @@ moringastudent@e634b4b6087d:~$ bash start-http-server.sh
 
 ## Author
 
-[Alois Mbutura](mailto: alois.mbutura@student.moringaschool.com).
+[Alois Mbutura](mailto:alois.mbutura@student.moringaschool.com)
 
 ## Licence
 
