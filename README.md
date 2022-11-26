@@ -4,9 +4,13 @@ Solutions for toy problems as part of the moringa school curriculum.
 
 ## Setup instructions
 
+### Running using github pages
+
+The files are hosted on github pages and can be run directly.
+
 ### Running locally
 
-  Open index.html - it contains links to the various solutions and will open in browser.
+Open index.html - it contains links to the various solutions and will open in browser.
 
 ### Running on a Virtual Private Server(VPS)
 
