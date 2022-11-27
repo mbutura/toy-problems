@@ -2,11 +2,13 @@
 
 Solutions for toy problems as part of the moringa school curriculum.
 
-## Running the repository on github
+## Instructions
 
-Webpage can be accessed [here](https://mbutura.github.io/toy-problems/)
+### Viewing the webpage on github pages
 
-## Clone and run locally (Tested on ubuntu 20.04)
+Webpage built from this repository can be accessed [here](https://mbutura.github.io/toy-problems/)
+
+### Clone and run webpage locally (Tested on ubuntu 20.04)
 
 - Install git
 
@@ -18,13 +20,13 @@ user@host:~$ sudo snap install git
 ```console
 user@host:~$ git clone https://github.com/mbutura/toy-problems.git
 ```
-- Enter into the cloned repository and open index.html in the browser
+- Enter into the cloned repository and open index.html in the Google Chrome
 
 ```console
 user@host:~$ cd toy-problems && google-chrome index.html
 ```
 
-## Clone to develop the codebase
+### Clone to extend the codebase in the moringa dev environment
 
 This section covers extending and running the codebase using within the moringa development enviornment such as npm, nvm etc. This allows the development to be carried out both locally or a Virtual Private Server(VPS).
 
