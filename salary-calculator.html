@@ -10,21 +10,18 @@
   <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-    <div class="w3-container">
-        <div class="w3-card-4" style="width:50%">
-            <header class="w3-container w3-light-grey">
-                <h1>Salary calculator</h1>
-            </header>
-            <div class="w3-container"></div>
-                <p id="gross-display"></p>
-                <p id="paye-display"></p>
-                <p id="nhif-display"></p>
-                <p id="nssf-display"></p>
-                <p id="net-display"></p>
-                <button onclick=myFunction() class="w3-button w3-block w3-dark-grey">+ Input gross pay</button>
-            </div>  
-        </div>
+    <div class="w3-container w3-light-blue">
+        <h1><a href = ./index.html>Salary calculato</a>r</h1>
     </div>
-    <script type="text/javascript" src="salary-calculator.js"></script>
+    <div class="w3-container"></div>
+        <!-- Tax deductions will display here-->
+        <p id="gross-display"></p>
+        <p id="paye-display"></p>
+        <p id="nhif-display"></p>
+        <p id="nssf-display"></p>
+        <p id="net-display"></p>
+        <button onclick=myTaxFunction() class="w3-button w3-red w3-round-small w3-hover-green">Input gross pay</button>
+    </div>  
+    <script type="text/javascript" src="index.js"></script>
 </body>
 </html>
